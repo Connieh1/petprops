@@ -16,8 +16,12 @@ Post
 -has_many :users, through: :posts
 
 resources posts do
-  resources pets, only: [:index, :show]
+  resources pets, only: [:index, :show, :new]
 end
+
+posts/1/pets
+posts/1/pets/3
+
 
 
 Specs:
@@ -33,9 +37,9 @@ Specs:
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
 - [ ] The application is pretty DRY
