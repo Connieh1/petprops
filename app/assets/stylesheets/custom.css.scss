@@ -1,8 +1,13 @@
 @import "bootstrap";
 
-
 .center {
   text-align: center;
+}
+
+/* navbar */
+.navbar-custom {
+	background-image: none;
+  background-color: #444649;
 }
 
 .jumbotron {
@@ -17,7 +22,7 @@
 #logo {
   float: left;
   font-size: 1.7em;
-  color: #fff;
+  color: #444649;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
@@ -28,6 +33,31 @@
   text-decoration: none;
 }  
 
-.footer-margin {
-  height: 100px;
+footer {
+	margin-top:	45px;
+	padding-top: 5px;
+	border-top: 1px solid #eaeaea;
+	color: gray;
+}
+  
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list_style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }
