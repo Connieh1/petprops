@@ -1,0 +1,18 @@
+<h1 align="center">Listing all posts</h1>
+<% @posts.each do |post| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="center">
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= post.title %></h4>
+      <p><%= truncate(post.content, length: 150) %></p>
+      <p>
+        <span class="quiet"><small>Created 
+
+        <%= time_ago_in_words(post.created_at) %> ago</small></span>
+      </p> 
+    </div>
+  </div>
+<% end %>

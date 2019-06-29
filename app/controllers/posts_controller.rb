@@ -1,3 +1,9 @@
 class PostsController < ApplicationController
-	validates :name, presence: true
+
+	def index
+		@posts = Post.all
+	end
+
 end
+
+

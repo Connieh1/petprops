@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :pets
+  resources :pets, only: [:index, :show]
 
   resources :posts do
-    resources :pets, only: [:index, :show, :new]
+    resources :pets, only: [:index, :show, :new, :create]
   end
 
  
