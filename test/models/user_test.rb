@@ -4,6 +4,7 @@ class UserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+<<<<<<< HEAD
 
   def setup
   	@user = User.new(name: "Happy", email: 'happy@always.com')
@@ -31,4 +32,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   
+=======
+>>>>>>> 8b1310004059b47c9a70c16d28f5a13364c232f9
 end

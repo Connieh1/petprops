@@ -2,12 +2,20 @@
 
 one:
   name: MyString
+<<<<<<< HEAD
   content: MyString
+=======
+  description: MyString
+>>>>>>> 8b1310004059b47c9a70c16d28f5a13364c232f9
   user: one
   pet: one
 
 two:
   name: MyString
+<<<<<<< HEAD
   content: MyString
+=======
+  description: MyString
+>>>>>>> 8b1310004059b47c9a70c16d28f5a13364c232f9
   user: two
   pet: two
