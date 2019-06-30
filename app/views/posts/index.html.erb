@@ -1,4 +1,6 @@
-<h1 align="center">Listing all posts</h1>
+<%= render 'shared/page_title', title: 'Listing All Posts' %>
+
+
 <% @posts.each do |post| %>
   <div class="row">
     <div class="col-md-2">
@@ -6,7 +8,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
-      <h4><%= post.title %></h4>
+      <h4><%= link_to "#{post.title}", post_path(post) %></h4>
       <p><%= truncate(post.content, length: 150) %></p>
       <p>
         <span class="quiet"><small>Created 
