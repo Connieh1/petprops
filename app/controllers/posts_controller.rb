@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 		@post.user = User.second
 		@post.pet = User.second.pets[0]
 		if @post.save
-			flash[:success] = "Post was created successfully"
+			flash[:success] = "Post was created successfully!"
 			redirect_to post_path(@post)
 		else
 			render 'new'
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find_by(id: params[:id])
 		if @post.update(post_params)
+			flash[:sucess] = "Post was updated successfully!"
 			redirect_to post_path
 		else
 			render 'edit'
