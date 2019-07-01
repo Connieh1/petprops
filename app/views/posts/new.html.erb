@@ -8,6 +8,28 @@
 <%#= f.submit "Give Your Pet Their Props!" %>
 <%# end %>
 
+
+<% if @post.errors.any? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <%= pluralize(@post.errors.count, "error") %>
+            prohibited this <%= @post.class %> from being saved:
+          </h2>
+          <div class="panel-body">
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+<% end %>
 <div class="row">
   <div class="col-md-12">
 <%= form_for @post do |f| %>
