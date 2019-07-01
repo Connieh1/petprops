@@ -2,11 +2,14 @@
 
 <div class="well col-md-8 col-md-offset-2">
   <h4 class="center description"><strong> <%= @post.pet.species %>:  <%= (@post.pet.breed) %> named  <%= @post.pet.name %></strong></h4>
-<hr /> <%= @post.content %><hr />
+<hr> 
+<%= simple_format(@post.content) %>
+<hr>
 <div class="pull-right">
   <p class="center">
-  	Created by:
+  	<em> Created by: </em>
   </p>
+  
   <p>
   	<small><%= @post.user.name %></small>
   	<div class="pull-right">

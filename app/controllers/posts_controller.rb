@@ -4,9 +4,31 @@ class PostsController < ApplicationController
 		@posts = Post.all
 	end
 
+	def new
+		@post = Post.new
+	end
+
+	def create
+		@post = Post.new(post_params)
+		@post.user = User.second
+		@post.pet = User.second.pets[0]
+		if @post.save
+			flash[:success] = "Post was created successfully"
+			redirect_to post_path(@post)
+		else
+			render 'new'
+		end
+	end
+
 	def show
 		@post = Post.find_by(id: params[:id])
 	end
+
+	private
+
+		def post_params
+			params.require(:post).permit(:title, :content, :user_id, :pet_id)
+		end
 
 end
 
