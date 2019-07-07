@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :set_recipe, only: [:show, :edit, :update]
+	before_action :set_post, only: [:show, :edit, :update]
 
 	def index
 		@posts = Post.all
@@ -11,8 +11,8 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
-		@post.user = User.second
-		@post.pet = User.second.pets[0]
+		# @post.user = current_user
+		# @post.pet = @post.user.pet
 		if @post.save
 			flash[:success] = "Post was created successfully!"
 			redirect_to post_path(@post)
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 			params.require(:post).permit(:title, :content, :user_id, :pet_id)
 		end
 
-		def set_recipe
+		def set_post
 			@post = Post.find_by(id: params[:id])
 		end
 

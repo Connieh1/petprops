@@ -2,14 +2,13 @@ Rails.application.routes.draw do
   root "application#home"
   get "home", to: "application#home"
 
-  resources :users
-
-  resources :pets, only: [:index, :show]
-
-  resources :posts do
-    resources :pets, only: [:index, :show, :new, :create]
+  get '/signup', to: "users#new"
+  resources :users, except: [:new] do
+  	resources :pets, only: [:index, :show, :new]
   end
 
- 
+  resources :pets
+
+  resources :posts
 
 end

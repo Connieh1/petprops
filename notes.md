@@ -3,8 +3,9 @@
 Models
 
 PetParents/user
--has_many :pets, through: :posts
 -has_many :posts
+-has_many :pets, through: :posts
+
 
 
 Post 
@@ -13,7 +14,12 @@ Post
   user submittable attribute: name, desc., picture
 
  Pet
--has_many :users, through: :posts
+-has_many :posts
+#-has_many :users, through: :posts
+-has_many :
+
+
+Breeds model, join table species_join, breeds_table breed has_may pets through species_join
 
 resources posts do
   resources pets, only: [:index, :show, :new]
