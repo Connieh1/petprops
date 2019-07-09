@@ -1,7 +1,8 @@
 <%= render 'shared/page_title', title: @post.title %>
 
+
 <div class="well col-md-8 col-md-offset-2">
-  <h4 class="center description"><strong> <%= @post.pet.species %>:  <%= (@post.pet.breed) %> named  <%= @post.pet.name %></strong></h4>
+  <h4 class="center description"><strong><%= @post.pet.name %> <br> <%= @post.pet.species %>:  <%= (@post.pet.breed) %></strong></h4>
 <hr> 
 <%= simple_format(@post.content) %>
 <hr>

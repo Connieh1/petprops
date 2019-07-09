@@ -1,3 +1,9 @@
 <%= render 'shared/page_title', title: 'Listing All Posts' %>
 
+<div align="center">
+	<%= will_paginate %>
+</div>
 <%= render 'post', obj: @posts  %>
+<div align="center">
+	<%= will_paginate %>
+</div>

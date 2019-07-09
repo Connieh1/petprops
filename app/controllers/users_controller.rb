@@ -35,6 +35,10 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+		@user = User.find_by(id: params[:id])
+		@user.destroy
+		flash[:danger] = "User and all posts have been deleted!"
+		redirect_to users_path
 	end
 
 	private

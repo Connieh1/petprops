@@ -3,5 +3,5 @@ class Post < ApplicationRecord
   validates :content, presence: true
   belongs_to :user
   belongs_to :pet
- 
+ 	default_scope -> { order(updated_at: :desc) }
 end
