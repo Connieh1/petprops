@@ -1,5 +1,7 @@
 <%= render 'shared/page_title', title: "All Users" %>
-
+<div align="center">
+	<%= will_paginate %>
+</div>
 <div align="center">
 	<% @users.each do |user| %>
 		<ul class="listing">
@@ -13,3 +15,7 @@
 		</ul>
 	<% end %>
 </div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+

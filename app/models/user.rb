@@ -7,6 +7,8 @@ class User < ApplicationRecord
  	validates :password, presence: true, length: { minimum: 5 }
   has_many :posts, dependent: :destroy
   has_many :pets, through: :posts
+  # has_many :pets
+  # accepts_nested_attributes_for :pets
  
 
 end

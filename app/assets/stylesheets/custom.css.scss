@@ -10,6 +10,10 @@
   background-color: #444649;
 }
 
+.profile {
+  text-align: right;
+}
+
 .jumbotron {
 	background-image: asset-url('cover_image_b.jpg');
 	/* Photo by Foto Garage AG on Unsplash */
@@ -35,6 +39,28 @@
 
 .btn-xlarge {
   background-color: #5c759e;
+}
+
+.semi-transparent-button {
+  display: inline;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 8px;
+  width: 80%;
+  max-width: 200px;
+  background: #fff; /* fallback color for old browsers */background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline;
 }
 
 
@@ -99,3 +125,6 @@ footer ul li {
   font-size: 1.25em;
 }
 
+.paginate {
+  text-align: center;
+}

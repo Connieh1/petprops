@@ -19,8 +19,18 @@
    </p>
  </div>
 </div>
+<div class="user-actions">
+  <% if logged_in? && current_user == @post.user %>
+  <%# binding.pry %>
+    <%= link_to "Edit this post", edit_post_path(@post), 
+                              class: "btn btn-xs btn-warning" %>
+    <%= link_to "Delete this post", post_path(@post), 
+                        method: :delete,
+      data: { confirm: "Are you sure you want to delete this post?" },
+                                      class: "btn btn-xs btn-danger" %>
+  <% end %>                                  
+  <%= link_to "Return to posts listing", posts_path, 
+                                class: "btn btn-xs btn-primary" %>
+</div>
 
-<%= link_to "Edit Post", edit_post_path(@post) %> <br>
-<%= link_to "Delete Post", post_path(@post), method: :delete,
-                            data: {confirm: "Are you sure you want to delete this post?"}%><br>
-<%= link_to "Return to Posts Listings", posts_path %>
+

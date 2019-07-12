@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-	before_action :set_post, only: [:show, :edit, :update]
+	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :require_user, except: [:index, :show]
+	before_action :require_same_user, only: [:edit, :update, :destroy]
 
 	def index
 		@posts = Post.paginate(page: params[:page], per_page: 5)
@@ -7,12 +9,13 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		@post.user = current_user
+		@pets = @post.user.pets
 	end
 
 	def create
 		@post = Post.new(post_params)
-		# @post.user = current_user
-		# @post.pet = @post.user.pet
+		@post.user = current_user
 		if @post.save
 			flash[:success] = "Post was created successfully!"
 			redirect_to post_path(@post)
@@ -52,6 +55,12 @@ class PostsController < ApplicationController
 			@post = Post.find_by(id: params[:id])
 		end
 
+		def require_same_user
+			if current_user != @post.user
+				flash[:danger] = "You can only edit or delete your own posts"
+				redirect_to posts_path
+			end
+		end
 end
 
 
