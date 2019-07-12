@@ -20,7 +20,7 @@
  </div>
 </div>
 <div class="user-actions">
-  <% if logged_in? && current_user == @post.user %>
+  <% if logged_in? && (current_user == @post.user || current_user.admin?)%>
   <%# binding.pry %>
     <%= link_to "Edit this post", edit_post_path(@post), 
                               class: "btn btn-xs btn-warning" %>

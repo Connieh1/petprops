@@ -16,7 +16,6 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if logged_in? %>
           <li class="nav-item dropdown">
@@ -36,7 +35,7 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.name.capitalize %>'s Profile 
+            <%= current_user.name.capitalize %>'s Profile <%= " (Admin)" if current_user.admin? %>
           </a>
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -54,6 +53,8 @@
           <li><a class="nav-link"<%= link_to "Log in", login_path %></a></li>  
         <% end %>
       </ul>
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
     </div><!-- /.navbar-collapse -->
 
     </ul>

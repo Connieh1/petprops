@@ -1,0 +1,24 @@
+Connies-MBP:petprops constancehyman$ rails c
+Running via Spring preloader in process 37454
+Loading development environment (Rails 5.2.3)
+2.3.3 :001 > User.find 5
+  User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "use​‌​
+rs"."id" = ? LIMIT ?  [["id", 5], ["LIMIT", 1]]
+ => #<User id: 5, name: "Bee", created_at: "2019-07-01 17:50:1​‌​
+7", updated_at: "2019-07-01 17:50:17", email: "bee@bee.com", p​‌​
+assword_digest: "$2a$12$.rSWsys/SBGmYb8QuPtHJeXa897xnVLzZaBMQK​‌​
+aIaEb...", admin: false> 
+2.3.3 :002 > bee =_
+ => #<User id: 5, name: "Bee", created_at: "2019-07-01 17:50:1​‌​
+7", updated_at: "2019-07-01 17:50:17", email: "bee@bee.com", p​‌​
+assword_digest: "$2a$12$.rSWsys/SBGmYb8QuPtHJeXa897xnVLzZaBMQK​‌​
+aIaEb...", admin: false> 
+2.3.3 :003 > bee.!toggle(:admin)
+NoMethodError: undefined method `toggle' for main:Object
+        from (irb):3
+2.3.3 :004 > bee!toggle(:admin)
+NoMethodError: undefined method `toggle' for main:Object
+        from (irb):4
+2.3.3 :005 > bee.admin?
+ => false 
+2.3.3 :006 > bee.toggle!(:admin)

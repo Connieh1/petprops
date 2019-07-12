@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
 	def update
 		if @post.update(post_params)
-			flash[:sucess] = "Post was updated successfully!"
+			flash[:success] = "Post was updated successfully!"
 			redirect_to post_path
 		else
 			render 'edit'
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 		end
 
 		def require_same_user
-			if current_user != @post.user
+			if current_user != @post.user && !current_user.admin?
 				flash[:danger] = "You can only edit or delete your own posts"
 				redirect_to posts_path
 			end
