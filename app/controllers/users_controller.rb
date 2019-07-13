@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		if !user.admin?
+		if !@user.admin?
 			@user.destroy
 			flash[:danger] = "User and all posts have been deleted!"
 			redirect_to users_path

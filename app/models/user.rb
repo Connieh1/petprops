@@ -5,10 +5,9 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
  	has_secure_password
  	validates :password, presence: true, length: { minimum: 5 }
+ 	has_many :pets
   has_many :posts, dependent: :destroy
-  has_many :pets, through: :posts
-  # has_many :pets
-  # accepts_nested_attributes_for :pets
- 
+  has_many :comments
+ 	has_many :commented_posts, through: :comments, source: post
 
 end

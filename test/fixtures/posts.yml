@@ -1,21 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-<<<<<<< HEAD
+  title: MyString
   content: MyString
-=======
-  description: MyString
->>>>>>> 8b1310004059b47c9a70c16d28f5a13364c232f9
   user: one
   pet: one
 
 two:
-  name: MyString
-<<<<<<< HEAD
+  title: MyString
   content: MyString
-=======
-  description: MyString
->>>>>>> 8b1310004059b47c9a70c16d28f5a13364c232f9
   user: two
   pet: two
