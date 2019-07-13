@@ -7,7 +7,7 @@ class User < ApplicationRecord
  	validates :password, presence: true, length: { minimum: 5 }
  	has_many :pets
   has_many :posts, dependent: :destroy
-  has_many :comments
- 	has_many :commented_posts, through: :comments, source: post
+  has_many :comments, dependent: :destroy
+ 	has_many :commented_posts, through: :comments, source: :post
 
 end
