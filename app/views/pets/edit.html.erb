@@ -1,0 +1,13 @@
+<%= render 'shared/errors', obj: @pet %>
+
+<h1>Edit Pet</h1>
+
+<%= form_for @pet do |f| %>
+
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	Name: <%= f.text_field :name, :value => @pet.name %><br />
+  Species : <%= f.text_field :species, :value => @pet.species %><br />
+  Breed : <%= f.text_field :breed, :value => @pet.breed %><br />
+  <%= f.submit "Edit Pet"%>
+
+<% end %>

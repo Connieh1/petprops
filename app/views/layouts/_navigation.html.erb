@@ -43,7 +43,8 @@
                                 user_path(current_user) %></li>
               <li><%= link_to "Edit your profile", 
                                 edit_user_path(current_user) %></li>
-              <li><a href="#">Something else here</a></li>
+              <li><%= link_to "Add Pets", new_user_pet_path(current_user) %></li>
+              <li><%#= link_to "Edit Pets", edit_user_pet_path(current_user, @pet.id) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log out", logout_path, 
                                       method: :delete %></li>

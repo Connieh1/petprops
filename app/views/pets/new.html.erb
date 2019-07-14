@@ -1,0 +1,13 @@
+<%= render 'shared/errors', obj: @pet %>
+
+<h1>New Pet</h1>
+
+<%= form_for @pet do |f| %>
+
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	Name: <%= f.text_field :name, placeholder: "Pet's Name" %><br />
+  Species : <%= f.text_field :species, placeholder: "Species" %><br />
+  Breed : <%= f.text_field :breed, placeholder: "Breed" %><br />
+  <%= f.submit %>
+
+<% end %>
