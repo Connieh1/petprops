@@ -20,6 +20,11 @@ class PetsController < ApplicationController
 	def show
 	end
 
+	def index
+		@pets = Pet.all
+	end
+
+
 	def edit
 	end
 
@@ -35,6 +40,7 @@ class PetsController < ApplicationController
 	end
 
 	def destroy
+		@pet.delete
 	end
 
 	private

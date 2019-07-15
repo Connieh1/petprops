@@ -1,6 +1,4 @@
-<h1><strong> <%= current_user.name %>'s Pets'  </strong></h1>
-<% current_user.pets.each do |pet| %><br>
-<strong> <%= pet.name %> </strong><br>
-Species: <%= pet.species %> <br>
-Breed: <%= pet.breed %> <br>
-<% end %>
+<h2><strong> <%= current_user.name %>'s Pet'  </strong></h2>
+<strong> <%= @pet.name %> </strong><br>
+Species: <%= @pet.species %> <br>
+Breed: <%= @pet.breed %> <br>
