@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :pets
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

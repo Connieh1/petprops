@@ -2,3 +2,5 @@
 <strong> <%= @pet.name %> </strong><br>
 Species: <%= @pet.species %> <br>
 Breed: <%= @pet.breed %> <br>
+<br>
+<%= link_to "#{current_user.name}'s Pets", pets_path %>

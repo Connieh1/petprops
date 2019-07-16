@@ -41,6 +41,7 @@ class PetsController < ApplicationController
 
 	def destroy
 		@pet.delete
+		redirect_to pets_path
 	end
 
 	private

@@ -10,7 +10,7 @@
       <p>
         <span class="quiet"><small>Created 
 
-        <%= time_ago_in_words(post.created_at) %> ago</small></span>
+        <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name.capitalize %> | <%= pluralize(post.comments.count, 'Comment') %></small></span>
       </p> 
       <% if logged_in? && (current_user == post.user || current_user.admin?) %>
       <div class="post-actions">
