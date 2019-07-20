@@ -8,10 +8,16 @@
   <div class="field">
     <div class="form-group">
       <div class="control-label col-md-2">
-      <strong><%= f.label :pet_name %></strong>&nbsp
-      <%# binding.pry %>
-      <%= f.collection_select(:pet_id, @post.user.pets.uniq, :id, :name, :prompt=>"Existing Pets") %> <br> <br>
-      <!-- <strong>Add A Pet:  </strong> -->
+      <strong><%= f.label :pet_name %></strong><br> &nbsp
+      <%#= binding.pry %>
+      <% if !params[:pet_id] %>
+      <%= f.collection_select(:pet_id, current_user.pets.uniq, :id, :name, :prompt=>"Existing Pets") %><br>
+      <% else %>
+      <%= f.hidden_field :pet_id, :value => params[:pet_id] %>
+      <%#= f.hidden_field :user_id, :value => current_user.id %>
+      <%#= f.text_field :"#{@post.pet.name}" %>
+      
+      <% end %>
       <%= link_to "Add Pet", new_user_pet_path(current_user) %>
       <%#= link_to "Edit Pet", edit_user_pet_path(current_user) %>
       <strong><%#= f.label :pet_name  %></strong><br>

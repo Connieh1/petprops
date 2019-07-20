@@ -9,7 +9,8 @@
 <div class="pull-right">
   <p class="center">
   	<em> Created by: </em>
-    <small><%= @post.user.name %></small>
+    <small><%= @post.user.name %></small> <br><br>
+    Comments: <%= @post.comments.size %>  &nbsp &nbsp Commenters: <%= @post.commenters.uniq.size %>
   </p>
   
   <p>
@@ -77,4 +78,3 @@
     </div>
   </div>
 <% end %>
-

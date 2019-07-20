@@ -8,20 +8,32 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
-		@post.user = current_user
-		@pets = @post.user.pets
+		if params[:pet_id]
+			@pet = Pet.find(params[:pet_id])    
+    	@post = @pet.posts.build
+    	@post.user = current_user	
+    else
+    	@post = Post.new
+    	@post[:pet_id] = @pet.id
+    	@post.user = current_user
+		end
 	end
 
 	def create
+
+
 		@post = Post.new(post_params)
-		@post.user = current_user
-		if @post.save
-			flash[:success] = "Post was created successfully!"
-			redirect_to post_path(@post)
-		else
-			render 'new'
-		end
+		# if params[pet_id]
+	  @post.pet = Pet.find(params[:post][:pet_id])   
+  # 	@post = @pet.posts.build(post_params)
+  	@post.user = current_user  
+  	if @post.save
+    	flash[:notice] = "Successfully created post."
+    	# redirect_to pet_posts_path(@post.pet)
+    	redirect_to user_pet_path(current_user.id, @post.pet.id)
+  	else
+   	 render :action => 'new'
+  	end
 	end
 
 	def show

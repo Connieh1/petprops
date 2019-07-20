@@ -1,0 +1,9 @@
+
+<!-- <h2>Comments</h2> -->
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong>Commenters:</strong>
+    <%= comment.users.uniq.size %>
+  </p>
+ 
+<% end %>

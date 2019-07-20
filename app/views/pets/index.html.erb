@@ -1,6 +1,6 @@
 <ul>
 <% current_user.pets.each do |pet| %>
-<li> <strong><%= pet.name %></strong> <br> <%= pet.breed %> <br> <%= pet.species %> <br>
+<li> <strong><%= link_to "#{pet.name}", pet_path(pet) %></strong> <br> <%= pet.breed %> <br> <%= pet.species %> <br>
 <small><%= link_to "Edit Pet", edit_pet_path(pet) %> &nbsp &nbsp 
 <%= link_to "Delete Pet", pet, method: :delete, data: { confirm: 'Are you sure you want to delete this pet?' } %>
 </small> <br> <br>
@@ -10,4 +10,4 @@
 
 Total Pets: <%= current_user.pets.count %> <br> <br>
 
-<%= link_to "Add Another Pet", new_user_pet_path(current_user) %>
+<%= link_to "Add A Pet", new_user_pet_path(current_user) %>

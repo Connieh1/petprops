@@ -6,6 +6,7 @@
     </div>
     <div class="col-md-8 well">
       <h4><%= link_to "#{post.title}", post_path(post) %></h4>
+      <small><p><%= "#{post.pet.name} | #{post.pet.species} | #{post.pet.breed}" %></p></small>
       <p><%= truncate(post.content, length: 150) %></p>
       <p>
         <span class="quiet"><small>Created 

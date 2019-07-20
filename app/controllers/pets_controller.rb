@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 	before_action :set_pet, only: [:show, :edit, :update, :destroy]
 	
-		def new
+	def new
 		@pet = Pet.new
 	end
 

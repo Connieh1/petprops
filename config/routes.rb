@@ -7,14 +7,21 @@ Rails.application.routes.draw do
   	resources :pets
   end
 
-  resources :pets
+  resources :pets do
+    resources :posts, only: [:new, :create, :edit, :delete, :index, :show]
+  end
 
   resources :posts do
     resources :comments, only: [:create]
   end
 
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/auth/google_oauth2/callback', to: 'authorizations#create'
+
+  # get '/welcome', to: 'authorizations#welcome'
 
 end
