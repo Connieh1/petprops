@@ -8,17 +8,23 @@
   <div class="field">
     <div class="form-group">
       <div class="control-label col-md-2">
-      <strong><%= f.label :pet_name %></strong><br> &nbsp
+      <strong><%#= f.label :pet_name %></strong><br> &nbsp
       <%#= binding.pry %>
-      <% if !params[:pet_id] %>
-      <%= f.collection_select(:pet_id, current_user.pets.uniq, :id, :name, :prompt=>"Existing Pets") %><br>
-      <% else %>
-      <%= f.hidden_field :pet_id, :value => params[:pet_id] %>
+      <%# if !params[:pet_id] %>
+      <strong><%= f.label :pet_name %></strong> &nbsp
+      <%= f.collection_select(:pet_id, current_user.pets.uniq, :id, :name, :prompt=>"Existing Pets") %>
+      <% #else %>
+      <%# binding.pry %>
+      <%#= f.hidden_field :pet_id, :value => params[:pet_id] %>
+      <strong><%#= f.label :pet_name %></strong>&nbsp
+      <strong><%#= @pet.name %></strong>
+      <br> &nbsp
+      <%= link_to "Add Pet", new_user_pet_path(current_user) %>
       <%#= f.hidden_field :user_id, :value => current_user.id %>
       <%#= f.text_field :"#{@post.pet.name}" %>
       
-      <% end %>
-      <%= link_to "Add Pet", new_user_pet_path(current_user) %>
+      <%# end %>
+      <%#= link_to "Add Pet", new_user_pet_path(current_user) %>
       <%#= link_to "Edit Pet", edit_user_pet_path(current_user) %>
       <strong><%#= f.label :pet_name  %></strong><br>
       <strong><%#= f.label :pet_name %></strong>

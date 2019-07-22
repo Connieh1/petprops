@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :pets do
-    resources :posts, only: [:new, :create, :edit, :delete, :index, :show]
+    resources :posts, only: [:new, :create, :edit, :destroy, :index, :show]
   end
 
   resources :posts do

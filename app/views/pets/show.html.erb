@@ -10,12 +10,15 @@ Breed: <%= @pet.breed %> <br>
 <%= link_to "#{current_user.name}'s Pets", pets_path %> &nbsp &nbsp
 </small>
 
-<hr>
+<hr />
 <ul>
 <% @pet.posts.each do |post| %>
 <li> <strong><%= link_to "#{post.title}", pet_post_path(@pet.id, post.id) %></strong> <br>
-	<%= post.content %> <br><br>
+	<%= post.content %> <br>
+	<small> <%= link_to "Edit Post", edit_pet_post_path(@pet, post) %> 
+	<%= link_to "Delete Post", pet_post_path(@pet, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</small> <br><br>
 </li>
-<% end %>
-
+<% end %> 
+	
 </ul>

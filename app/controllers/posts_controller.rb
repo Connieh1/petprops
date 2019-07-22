@@ -9,26 +9,25 @@ class PostsController < ApplicationController
 
 	def new
 		if params[:pet_id]
-			@pet = Pet.find(params[:pet_id])    
+			@pet = Pet.find(params[:pet_id])
     	@post = @pet.posts.build
-    	@post.user = current_user	
+    	@post.pet = @pet 
+    	# @post.user = current_user	
     else
     	@post = Post.new
-    	@post[:pet_id] = @pet.id
-    	@post.user = current_user
+    	# @post[:pet_id] = @pet.id
+    	# @post.user = current_user
 		end
 	end
 
 	def create
-
-
 		@post = Post.new(post_params)
 		# if params[pet_id]
 	  @post.pet = Pet.find(params[:post][:pet_id])   
   # 	@post = @pet.posts.build(post_params)
   	@post.user = current_user  
   	if @post.save
-    	flash[:notice] = "Successfully created post."
+    	flash[:success] = "Successfully created post."
     	# redirect_to pet_posts_path(@post.pet)
     	redirect_to user_pet_path(current_user.id, @post.pet.id)
   	else
