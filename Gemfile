@@ -33,7 +33,8 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
-
+gem "nokogiri", ">= 1.10.4"
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
