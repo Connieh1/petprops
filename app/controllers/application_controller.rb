@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user, :logged_in?
 
   def home
-    redirect_to posts_path if logged_in?
+    # redirect_to posts_path if logged_in?
   end
 
   def current_user
