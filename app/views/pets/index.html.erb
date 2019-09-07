@@ -1,3 +1,5 @@
+<h2><%= "#{current_user.name}'s Pets" %></h2>
+
 <ul>
 <% current_user.pets.each do |pet| %>
 <li> <strong><%= link_to "#{pet.name}", pet_path(pet) %></strong> <br> <%= pet.breed %> <br> <%= pet.species %> <br>
@@ -8,6 +10,14 @@
 	<% end %>
 </ul>
 
-Total Pets: <%= current_user.pets.count %> <br> <br>
+<%= "#{current_user.name}'s" %> Total Pets: <%= current_user.pets.count %> <br> <br>
 
-<%= link_to "Add A Pet", new_user_pet_path(current_user) %>
+<%= link_to "Add A Pet", new_user_pet_path(current_user) %> <br><br>
+<hr />
+
+<h2>All Pets</h2>
+<% @pets.each do |pet| %>
+<li> <strong><%= link_to "#{pet.name}", pet_path(pet) %></strong> <br> <%= pet.breed %> <br> <%= pet.species %> <br>
+</li>
+	<% end %>
+</ul>

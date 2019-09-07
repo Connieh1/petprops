@@ -16,7 +16,10 @@
   <p>
   	
   	<div class="pull-right">
-        <%= time_ago_in_words(@post.created_at) %> ago
+        <%= time_ago_in_words(@post.created_at) %> ago <br>
+        <% if @post.created_at != @post.updated_at %>
+        Updated <%= time_ago_in_words(@post.updated_at) %> ago
+        <% end %>
      </div><br>
    </p>
  </div>
