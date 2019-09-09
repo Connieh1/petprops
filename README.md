@@ -1,12 +1,11 @@
 <h1>Pet Props</h1>
 A social media site where people can write posts about their pet's wonderful qualities.
 
-<h1>Install</h1>
-Clone or download the app from Github. https://github.com/Connieh1/petprops
-
 <h1>Usage</h1>
 Sign up or log-in. Create, read, update, delete posts about your pet, or comment on posts about other members' pets.
 
+<h1>Install</h1>
+Clone or download the app from Github. https://github.com/Connieh1/petprops
 
 <h1>Built With</h1>
 <ul>
