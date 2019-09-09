@@ -21,7 +21,7 @@ Clone or download the app from Github. https://github.com/Connieh1/petprops
 </ul>
 
 <h1>License</h1>
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details
 
 
 
