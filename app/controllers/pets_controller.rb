@@ -21,9 +21,17 @@ class PetsController < ApplicationController
 	end
 
 	def index
-		@pets = Pet.all
-	end
+	  @pets = Pet.all
+	  if params[:search]
+	  	@pets = Pet.search(params[:search])
+   	else
+    	@pets = Pet.all
+    end
+  end
 
+
+  def user_pets
+  end
 
 	def edit
 	end
