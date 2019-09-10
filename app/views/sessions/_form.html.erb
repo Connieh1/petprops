@@ -22,5 +22,6 @@
   </div>
   <% end %>
   <div class="center">
-    [ <%= link_to "Don't have an account? Sign up now!", signup_path %> ]
+    [ <%= link_to "Don't have an account? Sign up now!", signup_path %> ] &nbsp
+    [ <%= link_to "Log In Using Google", '/auth/google_oauth2', method: :post %>]
   </div>
