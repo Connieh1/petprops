@@ -30,8 +30,6 @@ class PetsController < ApplicationController
   end
 
 
-  def user_pets
-  end
 
 	def edit
 	end

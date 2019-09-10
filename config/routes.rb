@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/signup', to: "users#new"
   resources :users, except: [:new] do
   	resources :pets
+    resources :posts, only: :index
   end
 
   resources :pets do

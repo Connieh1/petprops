@@ -12,11 +12,14 @@
        <a class="nav-link" <%= link_to "Pet Owners", users_path %><span class="sr-only">(current)</span></a>
       </li>
       <li><a class="nav-link"<%= link_to "All Posts", posts_path %><span class="sr-only">(current)</span></a></li> &nbsp &nbsp &nbsp
+      <% if current_user %>
+      <li><a class="nav-link"<%= link_to "My Posts", user_posts_path(current_user) %><span class="sr-only">(current)</span></a></li>
+      <% end %>
       <!-- <form class="form-inline my-2 my-lg-0"> -->
         <%= form_tag(pets_path, method: 'get', class: "form-inline my-2 my-lg-0") do %>
         <%= search_field_tag 'search', nil, class: 'form-control mr-sm-2', placeholder: 'Search'  %>
         <%= submit_tag "Submit", class: "btn btn-outline-success my-2 my-sm-0", :name => nil %>
-        <% end %>
+        <% end %> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
        <!--  <%= form_tag(pets_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Pets" %>
           <%= submit_tag "Search", :name => nil %>
