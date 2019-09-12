@@ -21,12 +21,17 @@ class PetsController < ApplicationController
 	end
 
 	def index
-	  @pets = Pet.all
-	  if params[:search]
+		if params[:search]
 	  	@pets = Pet.search(params[:search])
-   	else
-    	@pets = Pet.all
-    end
+	  	elsif @pets = if params[:user_id]
+      	user = User.find(params[:user_id])
+      	user.pets.page(params[:page]).per_page(5)
+      else
+    		@pets = Pet.paginate(page: params[:page], per_page: 15)
+    	end
+    else
+   		@pets = Pet.all
+   	end	
   end
 
 
@@ -35,7 +40,6 @@ class PetsController < ApplicationController
 	end
 
 	def update
-		#binding.pry
 		if @pet.update(pet_params)
 			flash[:success] = "Your pet was successfully edited"
 			redirect_to pet_path

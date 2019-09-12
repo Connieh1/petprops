@@ -36,6 +36,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <!-- <a class="dropdown-item" <%= link_to "#{current_user.name}'s Pets", user_pets_path(current_user) %></a> -->
           <a class="dropdown-item" <%= link_to "All Pets", pets_path %></a>
+          <% if current_user %>
+          <a class="dropdown-item" <%= link_to "#{current_user.name}'s Pets", user_pets_path(current_user) %></a>
+          <% end %>
           <a class="dropdown-item" <%= link_to "Add Pet", new_user_pet_path(current_user) %></a>
           <!-- <a class="dropdown-item" href="#">Another action</a> -->
           <!-- <div class="dropdown-divider"></div> -->
