@@ -1,5 +1,4 @@
 {
   "name": "petprops",
-  "private": true,
-  "dependencies": {}
+  "private": true
 }
