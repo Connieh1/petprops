@@ -1,0 +1,28 @@
+<% obj.each do |post| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="center">
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= link_to "#{post.title}", post_path(post) %></h4>
+      <small><p><%= "#{post.pet.name} | #{post.pet.species} | #{post.pet.breed}" %></p></small>
+      <p><%= truncate(post.content, length: 150) %></p>
+      <p>
+        <span class="quiet"><small>Created 
+
+        <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name.capitalize %> | <%= pluralize(post.comments.count, 'Comment') %> <br>
+        <% if post.created_at != post.updated_at %>
+        Updated <%= time_ago_in_words(post.updated_at) %> ago
+        <% end %>
+        </small></span>
+      </p> 
+      <% if logged_in? && (current_user == post.user || current_user.admin?) %>
+      <div class="post-actions">
+        <%= link_to "Edit this post", edit_post_path(post), class: "btn btn-xs btn-warning" %>
+        <%= link_to "Delete this post", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "btn btn-xs btn-danger" %>
+      </div> <br><br>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<h1><%= @user.name %>'s profile</h1>
+<h6><%= @user.email %></h6>
+<small><%= link_to "Edit your profile", edit_user_path(current_user) %></small> <br><br>
+<small><%="#{@user.name}" %>'s comments total: <%= @user.comments.size %></small>
+
+<h4 align="center"><%= @user.name %>'s posts</h4>
+<%= render 'posts/post', obj: @user.posts %>
+

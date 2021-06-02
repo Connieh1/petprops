@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "PetProps", root_path, class: "navbar-brand", id: "logo" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" <%= link_to "Home", home_path %><span class="sr-only">(current)</span></a>
+      </li>
+       <a class="nav-link" <%= link_to "Pet Owners", users_path %><span class="sr-only">(current)</span></a>
+      </li>
+      <li><a class="nav-link"<%= link_to "All Posts", posts_path %><span class="sr-only">(current)</span></a></li> &nbsp &nbsp &nbsp
+      <% if current_user %>
+      <li><a class="nav-link"<%= link_to "My Posts", user_posts_path(current_user) %><span class="sr-only">(current)</span></a></li>
+      <% end %>
+      <!-- <form class="form-inline my-2 my-lg-0"> -->
+        <%= form_tag(pets_path, method: 'get', class: "form-inline my-2 my-lg-0") do %>
+        <%= search_field_tag 'search', nil, class: 'form-control mr-sm-2', placeholder: 'Search'  %>
+        <%= submit_tag "Submit", class: "btn btn-outline-success my-2 my-sm-0", :name => nil %>
+        <% end %> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+       <!--  <%= form_tag(pets_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Pets" %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %> -->
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search Pet Species" aria-label="Search"> -->
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      <!-- </form> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp -->
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pets
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <a class="dropdown-item" <%= link_to "#{current_user.name}'s Pets", user_pets_path(current_user) %></a> -->
+          <a class="dropdown-item" <%= link_to "All Pets", pets_path %></a>
+          <% if current_user %>
+          <a class="dropdown-item" <%= link_to "#{current_user.name}'s Pets", user_pets_path(current_user) %></a>
+          <% end %>
+          <a class="dropdown-item" <%= link_to "Add Pet", new_user_pet_path(current_user) %></a>
+          <!-- <a class="dropdown-item" href="#">Another action</a> -->
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
+        <% end %>
+      </ul> &nbsp &nbsp &nbsp &nbsp &nbsp
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Posts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" <%= link_to "Create a new post", new_post_path %></a>
+          <!-- <a class="dropdown-item" href="#">Another action</a> -->
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
+        <% end %>
+      </ul> &nbsp &nbsp &nbsp &nbsp &nbsp
+      <ul class="nav navbar-nav navbar-right profile">
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.name.capitalize %>'s Profile <%= " (Admin)" if current_user.admin? %>
+          </a>
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "View your profile", 
+                                user_path(current_user) %></li>
+              <li><%= link_to "Edit your profile", 
+                                edit_user_path(current_user) %></li>
+              <li><%= link_to "Add Pets", new_user_pet_path(current_user) %></li>
+              <li><%#= link_to "Edit Pets", edit_user_pet_path(current_user, @pet.id) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Log out", logout_path, 
+                                      method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><a class="nav-link"<%= link_to "Log in", login_path %></a></li>  
+        <% end %>
+      </ul>
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+    </div><!-- /.navbar-collapse -->
+
+    </ul>
+  </div>
+
+</nav>
+

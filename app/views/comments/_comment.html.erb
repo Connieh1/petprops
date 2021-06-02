@@ -1,0 +1,13 @@
+<div class='row'>
+	<div class="col=md-2">
+		<section class="user_info center">
+			<!-- user's photo -->
+		</section>
+	</div>
+	<div class="col-md-8-well">
+		<p> <li> <%= comment.description %></p>
+		<p>
+			<span class="quiet"><small>Created: <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %></small></span></li>
+		</p>
+	</div>
+</div>

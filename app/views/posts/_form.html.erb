@@ -1,0 +1,74 @@
+<%= render 'shared/errors', obj: @post %>
+
+<div class="row">
+  <div class="col-md-12">
+<%= form_for @post do |f| %>
+
+  
+  <div class="field">
+    <div class="form-group">
+      <div class="control-label col-md-2">
+      <strong><%#= f.label :pet_name %></strong><br> &nbsp
+      <%#= binding.pry %>
+      <%# if !params[:pet_id] %>
+      <strong><%= f.label :pet_name %></strong> &nbsp
+      <%= f.collection_select(:pet_id, current_user.pets.uniq, :id, :name, :prompt=>"Existing Pets") %>
+      <% #else %>
+      <%# binding.pry %>
+      <%#= f.hidden_field :pet_id, :value => params[:pet_id] %>
+      <strong><%#= f.label :pet_name %></strong>&nbsp
+      <strong><%#= @pet.name %></strong>
+      <br> &nbsp
+      <%= link_to "Add Pet", new_user_pet_path(current_user) %>
+      <%#= f.hidden_field :user_id, :value => current_user.id %>
+      <%#= f.text_field :"#{@post.pet.name}" %>
+      
+      <%# end %>
+      <%#= link_to "Add Pet", new_user_pet_path(current_user) %>
+      <%#= link_to "Edit Pet", edit_user_pet_path(current_user) %>
+      <strong><%#= f.label :pet_name  %></strong><br>
+      <strong><%#= f.label :pet_name %></strong>
+      <%#= f.text_field :pet_id, placeholder: "Pet's Name" %>
+      <%#= f.text_field :pet_id, placeholder: "Pet's Species" %>
+
+      <strong><%#= f.label :pet_breed %></strong>
+      <%#= f.text_field :pet_id, placeholder: "Pet's Breed" %>
+    </div>
+    <div class="control-label col-md-2">
+      <strong><%#= f.label :pet_breed %></strong>
+      <%# binding.pry %>
+      <strong><%#= f.label :pet_name  %></strong>
+      <%#= f.text_field :pet_id, placeholder: "Pet's Name" %>
+    </div>
+  </div>
+    </div>
+
+<div class="form-group">
+  <div class="control-label col-md-2">
+    <%= f.label :title %>
+  </div>
+  <div class="col-md-8">
+    <%= f.text_field :title, class: "form-control", placeholder: "Title of post", autofocus: true %>
+</div>
+  </div>
+    <div class="form-group">
+      <div class="control-label col-md-2">
+        <%= f.label :content %>
+      </div>
+      <div class="col-md-8">
+        <%= f.text_area :content, rows: 10, class: "form-control", placeholder: "Tell us about your pet." %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <%= f.submit class: "btn btn-primary btn-lg btn-xlarge" %>
+      </div>
+    </div>
+    <% end %>
+    <div class="col-md-4 col-md-offset-4 colormatch">
+      [ <%= link_to "Cancel request and return to posts listings", posts_path %> ]
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,29 @@
+<% if current_user %>
+<h2><strong> <%= current_user.name %>'s Pet'  </strong></h2>
+<% end %>
+<strong> <%= @pet.name %> </strong><br>
+Species: <%= @pet.species %> <br>
+Breed: <%= @pet.breed %> <br>
+<br>
+
+<% if current_user %>
+	<small><%= link_to "Create new post about #{@pet.name}", new_pet_post_path(@pet) %> &nbsp &nbsp
+	<%= link_to "Edit Pet", edit_pet_path(@pet) %> &nbsp &nbsp 
+	<%= link_to "Delete Pet", @pet, method: :delete, data: { confirm: 'Are you sure you want to delete this pet?' } %> &nbsp &nbsp
+	<%= link_to "#{current_user.name}'s Pets", pets_path %> &nbsp &nbsp
+	</small>
+<% end %>
+
+
+<hr />
+<ul>
+<% @pet.posts.each do |post| %>
+<li> <strong><%= link_to "#{post.title}", pet_post_path(@pet.id, post.id) %></strong> <br>
+	<%= post.content %> <br>
+	<small> <%= link_to "Edit Post", edit_pet_post_path(@pet, post) %> 
+	<%= link_to "Delete Post", pet_post_path(@pet, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</small> <br><br>
+</li>
+<% end %> 
+	
+</ul>

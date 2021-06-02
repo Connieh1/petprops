@@ -1,0 +1,83 @@
+<%= render 'shared/page_title', title: @post.title %>
+
+
+<div class="well col-md-8 col-md-offset-2">
+  <h4 class="center description"><strong><%= @post.pet.name %> <br> <%= @post.pet.species %>:  <%= (@post.pet.breed) %></strong></h4>
+<hr /> 
+<%= simple_format(@post.content) %>
+<hr />
+<div class="pull-right">
+  <p class="center">
+  	<em> Created by: </em>
+    <small><%= @post.user.name %></small> <br><br>
+    Comments: <%= @post.comments.size %>  &nbsp &nbsp Commenters: <%= @post.commenters.uniq.size %>
+  </p>
+  
+  <p>
+  	
+  	<div class="pull-right">
+        <%= time_ago_in_words(@post.created_at) %> ago <br>
+        <% if @post.created_at != @post.updated_at %>
+        Updated <%= time_ago_in_words(@post.updated_at) %> ago
+        <% end %>
+     </div><br>
+   </p>
+ </div>
+</div>
+<div class="user-actions">
+  <% if logged_in? && (current_user == @post.user || current_user.admin?)%>
+  <%# binding.pry %>
+    <%= link_to "Edit this post", edit_post_path(@post), 
+                              class: "btn btn-xs btn-warning" %>
+    <%= link_to "Delete this post", post_path(@post), 
+                        method: :delete,
+      data: { confirm: "Are you sure you want to delete this post?" },
+                                      class: "btn btn-xs btn-danger" %>
+  <% end %>                                  
+  <%= link_to "Return to posts listing", posts_path, 
+                                class: "btn btn-xs btn-primary" %>
+</div>
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Comments: </h3>
+      <hr />
+  <%= form_for ([@post, @comment]) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+        <%= f.label :description, "Comment" %>
+      </div>
+      <div class="col-md-8">
+        <%= f.text_area :description, rows: 8, class: "form-control", placeholder: "Enter Comment Here" %>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit "Submit Comment", class: "btn btn-primary btn-lg btn-xlarge" %>
+        </div>
+      </div>
+    <% end %>
+    <hr />
+   </div>
+  </div>
+<% end %>
+   
+
+
+
+
+<% if @post.comments != 0 %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <!-- <h3>Prior Comments:</h3>   -->
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2"></div>
+    <h3> No Comments Yet! </h3>
+    </div>
+  </div>
+<% end %>

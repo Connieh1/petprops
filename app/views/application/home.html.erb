@@ -1,0 +1,28 @@
+<div class="jumbotron center">
+  <h1>Welcome To Pet Props!</h1>
+  <h2>The Site For Pet Lovers!</h2><br><br>
+  <% if !logged_in? %>
+  <p><%= link_to "Sign Up", signup_path, class: "btn semi-transparent-button btn-lg" %> &nbsp  &nbsp  &nbsp <%= link_to "Log In", login_path, class: "btn semi-transparent-button btn-lg" %> &nbsp &nbsp &nbsp <%= link_to "Log In Using Google", '/auth/google_oauth2', method: :post, class: "btn semi-transparent-button btn-lg" %></p>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <% @post = Post.first %>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.content %></p>
+    <p><div class="btn btn-primary btn-xxlarge btn-home" > <%= link_to "View details »", post_path(@post)  %></div></p>
+  </div>
+  <div class="col-lg-4">
+    <% @post = Post.second %>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.content %></p>
+    <p><div class="btn btn-primary btn-xxlarge"> <%= link_to "View details »", post_path(@post)  %></div></p>
+ </div>
+  <div class="col-lg-4">
+    <% @post = Post.third %>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.content %></p>
+    <p><div class="btn btn-primary btn-xxlarge"> <%= link_to "View details »", post_path(@post)  %></div></p>
+  </div>
+</div>
